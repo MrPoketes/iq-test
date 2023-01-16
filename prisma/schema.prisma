@@ -1,0 +1,28 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    timeLeft Int
+    score Score?
+    questions Question[]
+}
+
+model Score {
+    score Int
+    user User @relation(fields: [userId], references: [id])
+    userId Int @unique
+}
+
+model Question {
+    correct Boolean
+    timeTaken Int
+    user User @relation(fields: [userId], references: [id])
+    userId Int @unique
+}
