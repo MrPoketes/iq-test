@@ -19,7 +19,7 @@ export default function IntroductionPage() {
         <IntroductionCheck description="The test consists of 30 questions, gradually increasing in difﬁculty. Maximum test duration is 40 minutes." />
         <IntroductionCheck description="Evaluate questions from top to down. Choose the appropriate answer (A, B, C, D)" />
         <IntroductionCheck description="Please do not use any reference materials or the help of anyone else in solving these problems!" />
-        <Checkbox name="">
+        <Checkbox name="terms">
           <span>I have read, understood and agree to the </span>
           <Link
             prefetch="intent"
