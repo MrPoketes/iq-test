@@ -43,7 +43,7 @@ export const Button = <AsType extends React.ElementType>({
     <ButtonTag
       {...props}
       className={clsx(
-        "flex items-center justify-center rounded border p-2 text-xs font-medium no-underline transition duration-150",
+        "flex items-center justify-center rounded border p-2 px-4 text-xs font-medium no-underline transition duration-150",
         !shrink && "w-full",
         defaultClass,
         hoverClass,
