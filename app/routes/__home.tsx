@@ -7,7 +7,7 @@ export default function Home() {
       <Navigation
         items={[
           { link: "/home", title: "Home" },
-          { link: "/terms", title: "Terms of Participation" },
+          { link: "/terms", title: "Terms" },
           { link: "/contact", title: "Contact" },
         ]}
       />
