@@ -1,3 +1,9 @@
+import { TestIcon } from "~/Components/Icons/TestIcon";
+
 export default function TestPage() {
-  return <div>Test Page</div>;
+  return (
+    <div>
+      <TestIcon.Componential.Q1.Q1 />
+    </div>
+  );
 }
