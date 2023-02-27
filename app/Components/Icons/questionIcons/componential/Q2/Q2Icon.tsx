@@ -1,7 +1,7 @@
 import React from "react";
 import type { IconProps } from "~/Components/Icons/Icon";
 
-export const Q1Icon: React.FC<IconProps> = ({ className }) => (
+export const Q2Icon: React.FC<IconProps> = ({ className }) => (
   <svg
     className={className}
     viewBox="0 0 150 150"
@@ -9,10 +9,13 @@ export const Q1Icon: React.FC<IconProps> = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M63 114.5L87.5 107V67.5M87.5 67.5V28L63 21M87.5 67.5H63"
+      d="M15.4679 114.5L55.4117 37.5H136.407L92.1322 114.5H15.4679Z"
       stroke="black"
       strokeWidth="3"
     />
+    <circle cx="55" cy="37" r="4" fill="black" />
+    <circle cx="93" cy="113" r="4" fill="black" />
+    <circle cx="15" cy="113" r="4" fill="black" />
     <rect
       x="1.5"
       y="1.5"
