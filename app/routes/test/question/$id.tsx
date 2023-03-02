@@ -1,8 +1,9 @@
 import { useLoaderData } from "@remix-run/react";
 import { json, type LoaderArgs } from "@remix-run/server-runtime";
-import { ComponentialQuestion } from "~/Components/Question/ComponentialQuestion/ComponentialQuestion";
-import { ExperientialQuestion } from "~/Components/Question/ExperientialQuestion/ExperientialQuestion";
+import { ComponentialImageQuestion } from "~/Components/Question/ComponentialQuestion/ComponentialImageQuestion";
+import { ExperientialImageQuestion } from "~/Components/Question/ExperientialQuestion/ExperientialImageQuestion";
 import type { QuestionIdType } from "~/Components/Question/Interfaces/QuestionInterfaces";
+import { TextQuestion } from "~/Components/Question/TextQuestion";
 import { QuestionUtility } from "~/Components/Question/Utilities/QuestionUtility";
 
 export const loader = async (requestArguments: LoaderArgs) => {
@@ -19,16 +20,16 @@ export default function TestPage() {
   if (isComponentialId(id)) {
     // Componential Question Image section
     if (isComponentialImageId(id)) {
-      return <ComponentialQuestion.Image id={id} />;
+      return <ComponentialImageQuestion />;
     }
     // Componential Question Text section
-    return <div>Componential Text</div>;
+    return <TextQuestion />;
   }
   // Experiential Question Section
   if (isExperientialImageId(id)) {
     // Experiential Question Image section
-    return <ExperientialQuestion.Image id={id} />;
+    return <ExperientialImageQuestion />;
   }
   // Experiential Question Text section
-  return <div>Experiential text</div>;
+  return <TextQuestion />;
 }

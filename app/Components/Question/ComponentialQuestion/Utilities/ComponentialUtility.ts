@@ -1,5 +1,8 @@
 import { ComponentialIcon } from "~/Components/Icons/questionIcons/componential/ComponentialIcon";
-import type { ComponentialImageIdType } from "../../Interfaces/QuestionInterfaces";
+import type {
+  ComponentialImageIdType,
+  ComponentialTextIdType,
+} from "../../Interfaces/QuestionInterfaces";
 
 const getQuestionIcons = (id: ComponentialImageIdType) => {
   return {
@@ -40,6 +43,48 @@ const getQuestionIcons = (id: ComponentialImageIdType) => {
     },
   }[id];
 };
+
+const getTextQuestions = (id: ComponentialTextIdType) => {
+  return {
+    6: {
+      Question: ["Spouse", "Husband", "Sibling"],
+      A: "Father",
+      B: "Uncle",
+      C: "Brother",
+      D: "Son",
+    },
+    7: {
+      Question: ["Water", "Ice", "Rain"],
+      A: "Cyclone",
+      B: "Hail",
+      C: "Fire",
+      D: "Dry Ice",
+    },
+    8: {
+      Question: ["Gold", "Mine", "Pearl"],
+      A: "Oyster",
+      B: "Clam",
+      C: "Mine",
+      D: "River",
+    },
+    9: {
+      Question: ["Greek", "Greek", "Roman"],
+      A: "Indo-European",
+      B: "Latin",
+      C: "Mediterranean",
+      D: "Romanish",
+    },
+    10: {
+      Question: ["Alcohol", "Liver", "Cigarettes"],
+      A: "Kidneys",
+      B: "Lungs",
+      C: "Fet",
+      D: "Spleen",
+    },
+  }[id];
+};
+
 export const ComponentialUtility = {
   getQuestionIcons,
+  getTextQuestions,
 };
