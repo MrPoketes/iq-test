@@ -1,14 +1,14 @@
+import { useLoaderData } from "@remix-run/react";
+import {
+  QuestionButton,
+  QUESTION_OPTIONS,
+} from "~/Components/Question/QuestionButton/QuestionButton";
 import { Icon } from "../../Icons/Icon";
 import type { ExperientialImageIdType } from "../Interfaces/QuestionInterfaces";
 import { ExperientialUtility } from "./Utilities/ExperientialUtility";
 
-interface ExperientialImageQuestionProps {
-  id: ExperientialImageIdType;
-}
-
-export const ExperientialImageQuestion: React.FC<
-  ExperientialImageQuestionProps
-> = ({ id }) => {
+export const ExperientialImageQuestion: React.FC = () => {
+  const id: ExperientialImageIdType = useLoaderData();
   const iconStyles = "h-16 w-16 md:h-32 md:w-32";
   const QuestionIcons = ExperientialUtility.getQuestionIcons(id);
 
@@ -20,7 +20,7 @@ export const ExperientialImageQuestion: React.FC<
   ];
   return (
     <div className="rows-2 grid items-center justify-center space-y-3">
-      <div className="flex">
+      <div className="flex items-center justify-center">
         {QuestionIcons.Question.map((QuestionIcon, index) => {
           if (index === QuestionIcons.Question.length - 1) {
             return <QuestionIcon key={index} className={iconStyles} />;
@@ -41,11 +41,11 @@ export const ExperientialImageQuestion: React.FC<
           );
         })}
       </div>
-      <div className="space-x-6 md:space-x-10">
+      <div className="flex items-center justify-center space-x-4">
         {QuestionAnswers.map((QuestionAnswer, index) => (
-          <button key={index}>
+          <QuestionButton key={index} questionOption={QUESTION_OPTIONS[index]}>
             <QuestionAnswer className={iconStyles} />
-          </button>
+          </QuestionButton>
         ))}
       </div>
     </div>

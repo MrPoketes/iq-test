@@ -38,7 +38,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
   };
 
   return (
-    <div className="sticky flex items-center justify-center space-x-4 rounded-md bg-gray-200">
+    <div className="relative flex items-center justify-center space-x-4 rounded-md bg-gray-200">
       <Link
         to={previousPageUrl}
         prefetch={previousPageUrl ? "intent" : undefined}

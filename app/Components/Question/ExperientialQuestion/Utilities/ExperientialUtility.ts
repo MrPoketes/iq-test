@@ -1,5 +1,8 @@
 import { ExperientialIcon } from "~/Components/Icons/questionIcons/experiential/ExperientialIcon";
-import type { ExperientialImageIdType } from "../../Interfaces/QuestionInterfaces";
+import type {
+  ExperientialImageIdType,
+  ExperientialTextIdType,
+} from "../../Interfaces/QuestionInterfaces";
 
 const getQuestionIcons = (id: ExperientialImageIdType) => {
   return {
@@ -41,6 +44,47 @@ const getQuestionIcons = (id: ExperientialImageIdType) => {
   }[id];
 };
 
+const getTextQuestions = (id: ExperientialTextIdType) => {
+  return {
+    16: {
+      Question: ["Head", "Neck", "Wrist", "Bracelet"],
+      A: "Artist",
+      B: "Shoulder",
+      C: "Toe",
+      D: "Ring",
+    },
+    17: {
+      Question: ["Great Grandfather", "Grandfather", "Father", "Mother"],
+      A: "Granddaughter",
+      B: "Daughter",
+      C: "Grandmother",
+      D: "Child",
+    },
+    18: {
+      Question: ["Animal", "Mammal", "Dog", "Reptile"],
+      A: "Pig",
+      B: "Bird",
+      C: "Snake",
+      D: "Frog",
+    },
+    19: {
+      Question: ["Impossible", "Unlikely", "Possible", "Maybe"],
+      A: "Never",
+      B: "Probably",
+      C: "Uncertain",
+      D: "Unknown",
+    },
+    20: {
+      Question: ["Measure", "Mix", "Bake", "Eat"],
+      A: "Digest",
+      B: "Stove",
+      C: "Cool",
+      D: "Pan",
+    },
+  }[id];
+};
+
 export const ExperientialUtility = {
   getQuestionIcons,
+  getTextQuestions,
 };
