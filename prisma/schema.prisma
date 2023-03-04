@@ -18,10 +18,13 @@ model Score {
     score Int
     user User @relation(fields: [userId], references: [id])
     userId Int @unique
+
 }
 
 model Question {
     correct Boolean
+    id Int @id @default(autoincrement())
+    questionId Int
     user User @relation(fields: [userId], references: [id])
-    userId Int @unique
+    userId Int
 }

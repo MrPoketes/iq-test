@@ -6,6 +6,7 @@ interface ButtonProps<AsType extends React.ElementType> {
   color?: "red" | "green" | "default";
   type?: "button" | "submit";
   className?: string;
+  disabled?: boolean;
   children?: React.ReactNode;
   shrink?: boolean;
   as?: AsType;
@@ -17,6 +18,7 @@ type PolymorphicButtonProps<AsType extends React.ElementType> =
 export const Button = <AsType extends React.ElementType>({
   type = "submit",
   color = "default",
+  disabled = false,
   shrink = true,
   as,
   children,
@@ -24,29 +26,22 @@ export const Button = <AsType extends React.ElementType>({
   ...props
 }: PolymorphicButtonProps<AsType>) => {
   const ButtonTag = as || "button";
-  const { defaultClass, hoverClass } = {
-    green: {
-      defaultClass: "text-white bg-green-600 border-transparent",
-      hoverClass: "hover:bg-green-800",
-    },
-    red: {
-      defaultClass: "text-white bg-red-600 border-transparent",
-      hoverClass: "hover:bg-red-800",
-    },
-    default: {
-      defaultClass: "text-gray-600 bg-white border-gray-300",
-      hoverClass: "hover:bg-gray-100",
-    },
+  const styles = {
+    green: "text-white bg-green-600 border-transparent hover:bg-green-800",
+    red: "text-white bg-red-600 border-transparent hover:bg-red-800",
+    default: "text-gray-600 bg-white border-gray-300 hover:bg-gray-100",
   }[color];
 
   return (
     <ButtonTag
       {...props}
+      disabled={disabled}
       className={clsx(
         "flex items-center justify-center rounded border p-2 px-4 text-xs font-medium no-underline transition duration-150",
         !shrink && "w-full",
-        defaultClass,
-        hoverClass,
+        disabled &&
+          "cursor-not-allowed disabled:border-transparent disabled:bg-red-600 disabled:text-white disabled:hover:bg-red-800",
+        styles,
         FocusUtility.style,
         className
       )}

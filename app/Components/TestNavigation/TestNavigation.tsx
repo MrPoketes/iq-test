@@ -6,7 +6,6 @@ import { ParseUtility } from "../Utilities/ParseUtility";
 import { Icon } from "../Icons/Icon";
 
 interface TestNavigationProps {
-  currentPage: number;
   totalPages: number;
   items: { title: string; href: string }[];
 }
