@@ -26,7 +26,7 @@ export const loader = async (requestArguments: LoaderArgs) => {
 export default function HomePage() {
   const hasTakenTest = useLoaderData<typeof loader>();
   return (
-    <Form method="post" className="lg:w-1/2">
+    <Form method="post" className="text-gray-700 lg:w-1/2">
       <div className="-mt-14 flex items-center justify-center -space-x-7">
         <h2 className="text-2xl font-semibold">Welcome to</h2>
         <Icon.Logo className="h-36 w-36" />

@@ -137,9 +137,7 @@ export default function QuestionPage() {
       </Navigation>
       <main className="flex items-center justify-center p-3 px-5">
         <div className="lg:w-1/2">
-          <div className="space-y-3">
-            <Outlet />
-          </div>
+          <Outlet />
           <TestNavigation items={ITEMS} totalPages={ITEMS.length} />
         </div>
       </main>

@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
 
 export default function ContactPage() {
   return (
-    <div className="space-y-3 lg:w-1/2">
+    <div className="space-y-3 text-gray-700 lg:w-1/2">
       <h1 className="text-center text-xl font-medium">Contacts</h1>
       <ListItem description="Any questions or suggestions can be sent to az778@york.ac.uk" />
     </div>
