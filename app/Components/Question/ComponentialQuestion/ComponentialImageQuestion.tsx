@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import {
   QuestionButton,
-  QUESTION_OPTIONS,
+  ANSWER_OPTIONS,
 } from "~/Components/Question/QuestionButton/QuestionButton";
 import type { ComponentialImageIdType } from "../Interfaces/QuestionInterfaces";
 import { ComponentialUtility } from "./Utilities/ComponentialUtility";
@@ -21,7 +21,7 @@ export const ComponentialImageQuestion: React.FC = () => {
           {[ComponentialQuestionIcons.A, ComponentialQuestionIcons.B].map(
             (QuestionIcons, index) => (
               <QuestionButton
-                questionOption={QUESTION_OPTIONS[index]}
+                answerOption={ANSWER_OPTIONS[index]}
                 key={index}
                 containerClassName="flex items-center space-x-3"
               >
@@ -39,7 +39,7 @@ export const ComponentialImageQuestion: React.FC = () => {
           {[ComponentialQuestionIcons.C, ComponentialQuestionIcons.D].map(
             (QuestionIcons, index) => (
               <QuestionButton
-                questionOption={QUESTION_OPTIONS[index + 2]}
+                answerOption={ANSWER_OPTIONS[index + 2]}
                 key={index}
                 containerClassName="flex items-center space-x-3"
               >

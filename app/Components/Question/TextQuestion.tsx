@@ -5,7 +5,7 @@ import { ExperientialUtility } from "./ExperientialQuestion/Utilities/Experienti
 import type { QuestionTextIdType } from "./Interfaces/QuestionInterfaces";
 import {
   QuestionButton,
-  QUESTION_OPTIONS,
+  ANSWER_OPTIONS,
 } from "./QuestionButton/QuestionButton";
 import { QuestionUtility } from "./Utilities/QuestionUtility";
 
@@ -38,7 +38,7 @@ export const TextQuestion: React.FC = () => {
       </div>
       <div className="grid w-full grid-cols-2 grid-rows-2 items-center justify-center gap-2">
         {[A, B, C, D].map((answer, index) => (
-          <QuestionButton questionOption={QUESTION_OPTIONS[index]} key={index}>
+          <QuestionButton answerOption={ANSWER_OPTIONS[index]} key={index}>
             <p className="text-sm text-gray-700 md:text-xl">{answer}</p>
           </QuestionButton>
         ))}
