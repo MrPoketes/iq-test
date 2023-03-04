@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
 
 export default function TermsPage() {
   return (
-    <div className="space-y-3 lg:w-1/2">
+    <div className="space-y-3 text-gray-700 lg:w-1/2">
       <Terms />
     </div>
   );

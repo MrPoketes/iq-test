@@ -12,5 +12,5 @@ export const loader = async (requestArguments: LoaderArgs) => {
 
 export default function ResultPage() {
   const result = useLoaderData<typeof loader>();
-  return <div>Your result {result}</div>;
+  return <div className="text-gray-700">Your result {result}</div>;
 }
