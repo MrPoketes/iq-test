@@ -1,8 +1,18 @@
 import { Outlet } from "@remix-run/react";
+import { useState } from "react";
+import { Navigation } from "~/Components/Navigation/Navigation";
+import {
+  DEFAULT_ANSWER_VALUE,
+  QuestionContext,
+} from "~/Components/Question/Context/QuestionContext";
 import { TestNavigation } from "~/Components/TestNavigation/TestNavigation";
+import { Timer } from "~/Components/Timer/Timer";
 
 export default function QuestionPage() {
+  const [answers, setAnswers] = useState(DEFAULT_ANSWER_VALUE);
+  const [isTimerPaused, setIsTimerPaused] = useState(true);
   const items = [
+    { title: "G", href: "/test/question/g" },
     { title: "E1", href: "/test/question/e1" },
     { title: "1", href: "/test/question/1" },
     { title: "2", href: "/test/question/2" },
@@ -29,17 +39,39 @@ export default function QuestionPage() {
     { title: "20", href: "/test/question/20" },
   ];
   return (
-    <div className="lg:w-1/2">
-      <div className="space-y-3">
-        <Outlet />
-      </div>
+    <QuestionContext.Provider
+      value={{
+        answers: answers,
+        isTimerPaused: isTimerPaused,
+        setIsTimerPaused: (value) => setIsTimerPaused(value),
+        setAnswer: (id, answer) => {
+          setAnswers((currentAnswers) => ({
+            ...currentAnswers,
+            [id]: answer,
+          }));
+        },
+      }}
+    >
       <div>
-        <TestNavigation
-          items={items}
-          totalPages={items.length}
-          currentPage={5}
-        />
+        <Navigation items={[]}>
+          {/* TODO: Change this to 20 - 25min??? */}
+          <Timer initialTime={2000} />
+        </Navigation>
+        <main className="flex items-center justify-center p-3 px-5">
+          <div className="lg:w-1/2">
+            <div className="space-y-3">
+              <Outlet />
+            </div>
+            <div>
+              <TestNavigation
+                items={items}
+                totalPages={items.length}
+                currentPage={5}
+              />
+            </div>
+          </div>
+        </main>
       </div>
-    </div>
+    </QuestionContext.Provider>
   );
 }

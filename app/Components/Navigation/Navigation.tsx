@@ -6,9 +6,10 @@ import { NavigationItem } from "./NavigationItem";
 
 interface NavigationProps {
   items: NavigationItemProps[];
+  children?: React.ReactNode;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ items }) => {
+export const Navigation: React.FC<NavigationProps> = ({ items, children }) => {
   const location = useLocation();
 
   return (
@@ -24,6 +25,8 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
             />
           ))}
         </div>
+        <div className="flex-1" />
+        <div className="pr-8 text-lg font-semibold">{children}</div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import {
   QuestionButton,
-  QUESTION_OPTIONS,
+  ANSWER_OPTIONS,
 } from "~/Components/Question/QuestionButton/QuestionButton";
 import { Icon } from "../../Icons/Icon";
 import type { ExperientialImageIdType } from "../Interfaces/QuestionInterfaces";
@@ -43,7 +43,7 @@ export const ExperientialImageQuestion: React.FC = () => {
       </div>
       <div className="flex items-center justify-center space-x-4">
         {QuestionAnswers.map((QuestionAnswer, index) => (
-          <QuestionButton key={index} questionOption={QUESTION_OPTIONS[index]}>
+          <QuestionButton key={index} answerOption={ANSWER_OPTIONS[index]}>
             <QuestionAnswer className={iconStyles} />
           </QuestionButton>
         ))}

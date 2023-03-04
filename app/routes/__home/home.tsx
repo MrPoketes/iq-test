@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const action = async () => {
-  return redirect("/test");
+  return redirect("/test/question/g");
 };
 
 export default function HomePage() {
