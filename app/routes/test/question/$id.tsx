@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { json, type LoaderArgs } from "@remix-run/server-runtime";
+import { json, redirect, type LoaderArgs } from "@remix-run/server-runtime";
 import { useEffect } from "react";
 import { ComponentialImageQuestion } from "~/Components/Question/ComponentialQuestion/ComponentialImageQuestion";
 import { useQuestionContext } from "~/Components/Question/Context/QuestionContext";
@@ -7,9 +7,15 @@ import { ExperientialImageQuestion } from "~/Components/Question/ExperientialQue
 import type { QuestionIdType } from "~/Components/Question/Interfaces/QuestionInterfaces";
 import { TextQuestion } from "~/Components/Question/TextQuestion";
 import { QuestionUtility } from "~/Components/Question/Utilities/QuestionUtility";
+import { getSession } from "~/session.server";
 
 export const loader = async (requestArguments: LoaderArgs) => {
   const { params } = requestArguments;
+
+  const session = await getSession(requestArguments.request);
+  if (session.has("result")) {
+    return redirect("/");
+  }
 
   return json(params.id! as QuestionIdType);
 };

@@ -5,11 +5,14 @@ import type { NavigationItemProps } from "./NavigationItem";
 import { NavigationItem } from "./NavigationItem";
 
 interface NavigationProps {
-  items: NavigationItemProps[];
+  items?: NavigationItemProps[];
   children?: React.ReactNode;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ items, children }) => {
+export const Navigation: React.FC<NavigationProps> = ({
+  items = [],
+  children,
+}) => {
   const location = useLocation();
 
   return (

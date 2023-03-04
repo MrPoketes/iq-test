@@ -78,7 +78,7 @@ const getTextQuestions = (id: ComponentialTextIdType) => {
       Question: ["Alcohol", "Liver", "Cigarettes"],
       A: "Kidneys",
       B: "Lungs",
-      C: "Fet",
+      C: "Feet",
       D: "Spleen",
     },
   }[id];
