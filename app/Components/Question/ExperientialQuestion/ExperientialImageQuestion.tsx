@@ -19,7 +19,7 @@ export const ExperientialImageQuestion: React.FC = () => {
     QuestionIcons.D,
   ];
   return (
-    <div className="rows-2 grid items-center justify-center space-y-3">
+    <div className="rows-2 grid items-center justify-center space-y-10">
       <div className="flex items-center justify-center">
         {QuestionIcons.Question.map((QuestionIcon, index) => {
           if (index === QuestionIcons.Question.length - 1) {
