@@ -52,26 +52,22 @@ export default function QuestionPage() {
         },
       }}
     >
-      <div>
-        <Navigation items={[]}>
-          {/* TODO: Change this to 20 - 25min??? */}
-          <Timer initialTime={2000} />
-        </Navigation>
-        <main className="flex items-center justify-center p-3 px-5">
-          <div className="lg:w-1/2">
-            <div className="space-y-3">
-              <Outlet />
-            </div>
-            <div>
-              <TestNavigation
-                items={items}
-                totalPages={items.length}
-                currentPage={5}
-              />
-            </div>
+      <Navigation items={[]}>
+        {/* TODO: Change this to 20 - 25min??? */}
+        <Timer initialTime={2000} />
+      </Navigation>
+      <main className="flex items-center justify-center p-3 px-5">
+        <div className="lg:w-1/2">
+          <div className="space-y-3">
+            <Outlet />
           </div>
-        </main>
-      </div>
+          <TestNavigation
+            items={items}
+            totalPages={items.length}
+            currentPage={5}
+          />
+        </div>
+      </main>
     </QuestionContext.Provider>
   );
 }

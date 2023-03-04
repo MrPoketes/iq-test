@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { FocusUtility } from "../Utilities/FocusUtility";
 import { Link, useLocation } from "@remix-run/react";
@@ -16,6 +16,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
   items,
 }) => {
   const location = useLocation();
+  const [breakpoint, setBreakpoint] = useState<"desktop" | "mobile">("mobile");
   const urlId = ParseUtility.parse(location.pathname);
   const currentPage = items.findIndex(
     ({ title }) => title === urlId.toUpperCase()
@@ -25,58 +26,69 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
   const previousPageUrl: string | undefined = items[currentPage - 1]?.href;
 
   const getDisplayedItems = () => {
-    if (totalPages <= 5) {
-      return items;
-    } else {
-      if (currentPage <= 3) {
-        return items.slice(0, 5);
-      } else if (currentPage >= totalPages - 2) {
-        return items.slice(totalPages - 5);
-      }
-      return items.slice(currentPage - 3, currentPage + 2);
+    const itemsPerPage = breakpoint === "desktop" ? 9 : 5;
+    let startIndex = Math.max(currentPage - 3, 0);
+    if (totalPages - currentPage < 6) {
+      startIndex = Math.max(totalPages - itemsPerPage, 0);
     }
+    const endIndex = Math.min(startIndex + itemsPerPage, items.length);
+
+    return items.slice(startIndex, endIndex);
   };
 
+  useEffect(() => {
+    if (window.innerWidth > 1022) {
+      setBreakpoint("desktop");
+      return;
+    }
+    setBreakpoint("mobile");
+  }, []);
+
+  const navigationButtonStyles = (pageUrl?: string) =>
+    clsx(
+      FocusUtility.style,
+      !pageUrl
+        ? "cursor-not-allowed text-gray-400"
+        : "text-gray-500 hover:text-gray-600",
+      "rounded-md p-2"
+    );
+
   return (
-    <div className="relative flex items-center justify-center space-x-4 rounded-md bg-gray-200">
-      <Link
-        to={previousPageUrl}
-        prefetch={previousPageUrl ? "intent" : undefined}
-        className={clsx(
-          FocusUtility.style,
-          "rounded-full p-2 text-gray-400 hover:text-gray-600 disabled:cursor-default disabled:text-gray-300"
-        )}
-      >
-        <Icon.ChevronLeft className="h-4 w-4" />
-      </Link>
-      <div className="flex items-center justify-center space-x-3 overflow-x-auto p-1">
-        {getDisplayedItems().map(({ title, href }, i) => (
-          <Link
-            key={i}
-            prefetch="intent"
-            to={href}
-            className={clsx(
-              "rounded-md p-2 text-sm",
-              FocusUtility.style,
-              title === urlId.toUpperCase()
-                ? "bg-gray-100 text-gray-700"
-                : "text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-            )}
-          >
-            {title}
-          </Link>
-        ))}
+    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 transform">
+      <div className="relative flex items-center justify-center space-x-1 rounded-md bg-gray-200 px-1 lg:mx-24">
+        <Link
+          to={previousPageUrl}
+          prefetch={previousPageUrl ? "intent" : undefined}
+          className={navigationButtonStyles(previousPageUrl)}
+        >
+          <Icon.ChevronLeft className="h-4 w-4" />
+        </Link>
+        <div className="flex items-center justify-center space-x-3 overflow-x-auto p-1">
+          {getDisplayedItems().map(({ title, href }, i) => (
+            <Link
+              key={i}
+              prefetch="intent"
+              to={href}
+              className={clsx(
+                "rounded-md p-2 text-sm",
+                FocusUtility.style,
+                title === urlId.toUpperCase()
+                  ? "bg-gray-100 text-gray-700"
+                  : "text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              )}
+            >
+              {title}
+            </Link>
+          ))}
+        </div>
+        <Link
+          to={nextPageUrl}
+          prefetch={nextPageUrl ? "intent" : undefined}
+          className={navigationButtonStyles(nextPageUrl)}
+        >
+          <Icon.ChevronRight className="h-4 w-4" />
+        </Link>
       </div>
-      <Link
-        to={nextPageUrl}
-        prefetch={nextPageUrl ? "intent" : undefined}
-        className={clsx(
-          FocusUtility.style,
-          "rounded-full p-2 text-gray-400 hover:text-gray-600 disabled:cursor-default disabled:text-gray-300"
-        )}
-      >
-        <Icon.ChevronRight className="h-4 w-4" />
-      </Link>
     </div>
   );
 };

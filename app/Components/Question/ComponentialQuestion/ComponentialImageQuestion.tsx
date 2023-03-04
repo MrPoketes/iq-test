@@ -12,7 +12,7 @@ export const ComponentialImageQuestion: React.FC = () => {
   const ComponentialQuestionIcons = ComponentialUtility.getQuestionIcons(id);
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-10">
       <div className="flex items-center justify-center">
         <ComponentialQuestionIcons.Question className={iconStyles} />
       </div>
