@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { FocusUtility } from "../Utilities/FocusUtility";
+import { Icon } from "../Icons/Icon";
 
 interface ButtonProps<AsType extends React.ElementType> {
   color?: "red" | "green" | "default";
@@ -9,6 +10,7 @@ interface ButtonProps<AsType extends React.ElementType> {
   disabled?: boolean;
   children?: React.ReactNode;
   shrink?: boolean;
+  loading?: boolean;
   as?: AsType;
 }
 
@@ -20,6 +22,7 @@ export const Button = <AsType extends React.ElementType>({
   color = "default",
   disabled = false,
   shrink = true,
+  loading = false,
   as,
   children,
   className,
@@ -47,7 +50,10 @@ export const Button = <AsType extends React.ElementType>({
       )}
       type={type}
     >
-      {children}
+      <div className="flex items-center space-x-1">
+        {loading && <Icon.Loading className="block h-5 w-5 animate-spin" />}
+        <p>{children}</p>
+      </div>
     </ButtonTag>
   );
 };

@@ -18,6 +18,7 @@ export const ExperientialImageQuestion: React.FC = () => {
     QuestionIcons.C,
     QuestionIcons.D,
   ];
+
   return (
     <div className="rows-2 grid items-center justify-center space-y-10">
       <div className="flex items-center justify-center">

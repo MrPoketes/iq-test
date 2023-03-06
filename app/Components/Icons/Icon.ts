@@ -3,6 +3,7 @@ import { ChevronLeftIcon } from "./icons/ChevronLeftIcon";
 import { ChevronRightIcon } from "./icons/ChevronRightIcon";
 import { DoubleChevronRightIcon } from "./icons/DoubleChevronRightIcon";
 import { InfoIcon } from "./icons/InfoIcon";
+import { LoadingIcon } from "./icons/LoadingIcon";
 import { LogoIcon } from "./icons/LogoIcon";
 
 export interface IconProps {
@@ -16,4 +17,5 @@ export const Icon = {
   ChevronRight: ChevronRightIcon,
   DoubleChevronRight: DoubleChevronRightIcon,
   Info: InfoIcon,
+  Loading: LoadingIcon,
 };
