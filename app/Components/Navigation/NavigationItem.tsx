@@ -20,6 +20,7 @@ export const NavigationItem: React.FC<NavigationItemComponentProps> = ({
   const selected = selectedLink === link;
   return (
     <Link
+      aria-label={title}
       to={link}
       prefetch="intent"
       className={clsx(

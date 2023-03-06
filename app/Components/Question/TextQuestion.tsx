@@ -24,14 +24,14 @@ export const TextQuestion: React.FC = () => {
           if (index === Question.length - 2) {
             return (
               <div key={index} className={containerStyles}>
-                <p>{question}</p>
+                <p aria-label={question}>{question}</p>
                 <Icon.DoubleChevronRight className="h-5 w-5 md:h-6 md:w-6" />
               </div>
             );
           }
           return (
             <div key={index} className={containerStyles}>
-              <span>{question}</span>
+              <p aria-label={question}>{question}</p>
               <Icon.ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
             </div>
           );

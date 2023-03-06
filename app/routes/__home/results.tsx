@@ -12,5 +12,18 @@ export const loader = async (requestArguments: LoaderArgs) => {
 
 export default function ResultPage() {
   const result = useLoaderData<typeof loader>();
-  return <div className="text-gray-700">Your result {result}</div>;
+  return (
+    <div className="space-y-3 text-gray-700 lg:w-1/2">
+      <h1 className="text-center text-xl font-medium">
+        Thank you for participating!
+      </h1>
+      <h3 className="text-center text-lg">
+        Your result is: <span className="font-medium">{result}</span>
+      </h3>
+      <p className="text-center text-sm">
+        {"("}Please note that the score you have received may not represent your
+        actual IQ. The score should only be used for entertainment purposes{")"}
+      </p>
+    </div>
+  );
 }
