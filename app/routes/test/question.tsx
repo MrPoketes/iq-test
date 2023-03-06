@@ -109,7 +109,6 @@ export default function QuestionPage() {
       }}
     >
       <Navigation>
-        {/* TODO: Change this to 20 - 25min??? */}
         <div className="flex items-center space-x-5">
           <Tooltip
             content={
@@ -130,6 +129,8 @@ export default function QuestionPage() {
             </div>
           </Tooltip>
           <Button
+            aria-label="Finish Test"
+            aria-disabled={unansweredQuestions.length > 0}
             loading={fetcher.state === "submitting"}
             type="submit"
             disabled={unansweredQuestions.length > 0}

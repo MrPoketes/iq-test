@@ -40,13 +40,16 @@ export default function HomePage() {
         {!hasTakenTest ? (
           <>
             <Checkbox
+              aria-label="I have read, understood and agree to the Terms of Participation!"
               className="ml-1"
               name="terms"
               label="I have read, understood and agree to the Terms of Participation!"
             />
 
             <div className="flex justify-center">
-              <Button color="green">Begin the test</Button>
+              <Button color="green" aria-label="Begin the test">
+                Begin the test
+              </Button>
             </div>
           </>
         ) : (

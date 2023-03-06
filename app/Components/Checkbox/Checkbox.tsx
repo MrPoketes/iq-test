@@ -11,10 +11,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   name,
   label,
   className,
+  ...props
 }) => {
   return (
     <div className={clsx("flex flex-col text-gray-800", className)}>
-      <label className="inline-flex items-center space-x-4">
+      <label className="inline-flex items-center space-x-4" {...props}>
         <input
           className="form-checkbox rounded"
           type="checkbox"
