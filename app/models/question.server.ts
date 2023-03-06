@@ -6,23 +6,14 @@ import type { QuestionIdType } from "~/Components/Question/Interfaces/QuestionIn
 import { prisma } from "~/db.server";
 
 export const createAnswer = async (answers: AnswerType, timeLeft: number) => {
-  const userRecord = await prisma.user.create({
+  const score = 100;
+  const userRecord = await prisma.users.create({
     data: {
+      score: score,
       timeLeft,
     },
   });
   const userId = userRecord.id;
-  const score = 100;
-  await prisma.score.create({
-    data: {
-      score: 100,
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
-    },
-  });
 
   const answerRecords = Object.entries(answers).map(([questionId, option]) => {
     return {
@@ -32,7 +23,7 @@ export const createAnswer = async (answers: AnswerType, timeLeft: number) => {
     };
   });
 
-  await prisma.question.createMany({
+  await prisma.questions.createMany({
     data: answerRecords,
   });
   return score;
