@@ -1,4 +1,4 @@
-describe("homepage", () => {
+describe("iq-test", () => {
   it("should navigate between pages", () => {
     cy.visitAndCheck("/");
     cy.get("a").contains("Terms").click();
