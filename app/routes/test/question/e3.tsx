@@ -17,7 +17,7 @@ export const loader = async (requestArguments: LoaderArgs) => {
 
 export default function ThirdExplanation() {
   const { setIsTimerPaused } = useQuestionContext();
-  const iconStyles = "w-[4.5rem] h-[4.5rem]";
+  const iconStyles = "w-16 h-16";
   useEffect(() => {
     setIsTimerPaused(true);
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
@@ -77,7 +77,7 @@ export default function ThirdExplanation() {
             );
           })}
         </div>
-        <div className="flex items-center justify-center space-x-4">
+        <div className="flex items-center justify-center space-x-2">
           {[
             ExperientialExampleIcons.A,
             ExperientialExampleIcons.B,

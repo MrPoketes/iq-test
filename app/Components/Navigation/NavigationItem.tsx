@@ -20,10 +20,11 @@ export const NavigationItem: React.FC<NavigationItemComponentProps> = ({
   const selected = selectedLink === link;
   return (
     <Link
+      aria-label={title}
       to={link}
       prefetch="intent"
       className={clsx(
-        "rounded p-2 hover:bg-gray-600",
+        "rounded p-2 text-sm hover:bg-gray-600 md:text-base",
         selected && "bg-gray-600",
         FocusUtility.style
       )}

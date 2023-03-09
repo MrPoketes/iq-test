@@ -14,6 +14,7 @@ export const TextQuestion: React.FC = () => {
   const { Question, A, B, C, D } = QuestionUtility.isComponentialId(id)
     ? ComponentialUtility.getTextQuestions(id)
     : ExperientialUtility.getTextQuestions(id);
+
   return (
     <div className="rows-2 grid items-center justify-center space-y-10">
       <div className="flex items-center justify-center space-x-1">
@@ -23,14 +24,14 @@ export const TextQuestion: React.FC = () => {
           if (index === Question.length - 2) {
             return (
               <div key={index} className={containerStyles}>
-                <p>{question}</p>
+                <p aria-label={question}>{question}</p>
                 <Icon.DoubleChevronRight className="h-5 w-5 md:h-6 md:w-6" />
               </div>
             );
           }
           return (
             <div key={index} className={containerStyles}>
-              <span>{question}</span>
+              <p aria-label={question}>{question}</p>
               <Icon.ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
             </div>
           );

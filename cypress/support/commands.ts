@@ -4,6 +4,13 @@ declare global {
   namespace Cypress {
     interface Chainable {
       /**
+       * Deletes the current session cookie
+       *
+       * @example
+       *    cy.cleanupSession()
+       */
+      cleanupSession: typeof cleanupSession;
+      /**
        * Extends the standard visit command to wait for the page to load
        *
        * @returns {typeof visitAndCheck}
@@ -16,6 +23,10 @@ declare global {
       visitAndCheck: typeof visitAndCheck;
     }
   }
+}
+
+function cleanupSession() {
+  cy.clearCookie("__session");
 }
 
 // We're waiting a second because of this issue happen randomly

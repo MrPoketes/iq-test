@@ -18,11 +18,13 @@ export default function Home() {
         { link: "/home", title: "Home" },
         { link: "/terms", title: "Terms" },
         { link: "/contact", title: "Contact" },
+        { link: "/literature", title: "Literature" },
         { link: "/results", title: "Results" },
       ]
     : [
         { link: "/home", title: "Home" },
         { link: "/terms", title: "Terms" },
+        { link: "/literature", title: "Literature" },
         { link: "/contact", title: "Contact" },
       ];
   return (

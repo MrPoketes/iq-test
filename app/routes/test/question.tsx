@@ -62,7 +62,7 @@ export default function QuestionPage() {
   const [answers, setAnswers] = useState(DEFAULT_ANSWER_VALUE);
   const [isTimerPaused, setIsTimerPaused] = useState(true);
 
-  const [time, setTime] = useState(2000);
+  const [time, setTime] = useState(1320);
 
   useEffect(() => {
     if (time > 0 && !isTimerPaused) {
@@ -72,8 +72,17 @@ export default function QuestionPage() {
 
       return () => clearInterval(interval);
     }
+    if (time === 0) {
+      fetcher.submit({ ...answers, timeLeft: time.toString() } as any, {
+        method: "post",
+      });
+    }
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, [time, isTimerPaused]);
 
+  /**
+   * It takes an object of answers and returns an array of unanswered questions
+   */
   const getUnansweredQuestions = () => {
     const unansweredQuestions: string[] = [];
     Object.entries(answers).forEach(([key, value]) => {
@@ -100,7 +109,6 @@ export default function QuestionPage() {
       }}
     >
       <Navigation>
-        {/* TODO: Change this to 20 - 25min??? */}
         <div className="flex items-center space-x-5">
           <Tooltip
             content={
@@ -121,6 +129,9 @@ export default function QuestionPage() {
             </div>
           </Tooltip>
           <Button
+            aria-label="Finish Test"
+            aria-disabled={unansweredQuestions.length > 0}
+            loading={fetcher.state === "submitting"}
             type="submit"
             disabled={unansweredQuestions.length > 0}
             onClick={() =>

@@ -35,6 +35,25 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
     return items.slice(startIndex, endIndex);
   };
 
+  const getAriaLabel = (title: string) => {
+    if (title.includes("G")) {
+      return "Guide Page";
+    }
+    if (title.includes("E")) {
+      if (title.includes("1")) {
+        return "Explanation Page 1";
+      }
+      if (title.includes("2")) {
+        return "Explanation Page 2";
+      }
+      if (title.includes("3")) {
+        return "Explanation Page 3";
+      }
+      return "Explanation Page 4";
+    }
+    return `Question ${title}`;
+  };
+
   useEffect(() => {
     if (window.innerWidth > 1022) {
       setBreakpoint("desktop");
@@ -56,6 +75,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
     <div className="fixed bottom-5 left-1/2 -translate-x-1/2 transform">
       <div className="relative flex items-center justify-center space-x-1 rounded-md bg-gray-200 px-1 lg:mx-24">
         <Link
+          aria-label="Previous Page"
           to={previousPageUrl}
           prefetch={previousPageUrl ? "intent" : undefined}
           className={navigationButtonStyles(previousPageUrl)}
@@ -65,6 +85,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
         <div className="flex items-center justify-center space-x-3 overflow-x-auto p-1">
           {getDisplayedItems().map(({ title, href }, i) => (
             <Link
+              aria-label={getAriaLabel(title)}
               key={i}
               prefetch="intent"
               to={href}
@@ -72,7 +93,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
                 "rounded-md p-2 text-sm",
                 FocusUtility.style,
                 title === urlId.toUpperCase()
-                  ? "bg-gray-100 text-gray-700"
+                  ? "bg-gray-100 font-semibold text-gray-700"
                   : "text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               )}
             >
@@ -81,6 +102,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
           ))}
         </div>
         <Link
+          aria-label="Next Page"
           to={nextPageUrl}
           prefetch={nextPageUrl ? "intent" : undefined}
           className={navigationButtonStyles(nextPageUrl)}

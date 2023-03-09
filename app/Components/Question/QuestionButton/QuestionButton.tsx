@@ -27,6 +27,7 @@ export const QuestionButton: React.FC<QuestionButtonProps> = ({
 
   return (
     <button
+      aria-label={answerOption}
       onClick={() => setAnswer(id, answerOption)}
       type="button"
       className={clsx(
