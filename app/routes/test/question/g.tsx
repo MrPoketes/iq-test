@@ -26,11 +26,11 @@ export default function GuidePage() {
       </h3>
       <ul className="ml-3 list-disc space-y-2">
         <li>
-          Top navigation 3 items, information button, "Finish" button and the
-          timer
+          Top navigation has 3 items: information button, "Finish" button and
+          the timer
         </li>
         <li>
-          Hover or clicking, if you are on mobile, on information button will
+          Hovering or clicking, if you are on mobile, on information button will
           show a list of unanswered questions
         </li>
         <li>

@@ -93,7 +93,7 @@ export const TestNavigation: React.FC<TestNavigationProps> = ({
                 "rounded-md p-2 text-sm",
                 FocusUtility.style,
                 title === urlId.toUpperCase()
-                  ? "bg-gray-100 text-gray-700"
+                  ? "bg-gray-100 font-semibold text-gray-700"
                   : "text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               )}
             >
