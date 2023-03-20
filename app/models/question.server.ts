@@ -46,7 +46,9 @@ const getScore = async (answers: AnswerType) => {
   const std = MathUtility.calculateStandardDeviation(
     allScores.map((score) => score.score)
   );
-
+  if (std === 0) {
+    return Math.round((rawScore / totalRawScore) * 100);
+  }
   return Math.round(100 + 15 * ((rawScore - meanRawScore) / std));
 };
 
