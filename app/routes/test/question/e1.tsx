@@ -1,8 +1,6 @@
 import { type LoaderArgs, redirect } from "@remix-run/server-runtime";
 import { useEffect } from "react";
-import { ComponentialExampleIcons } from "~/Components/Icons/questionIcons/componential/Example/ComponentialExampleIcons";
 import { useQuestionContext } from "~/Components/Question/Context/QuestionContext";
-import { ANSWER_OPTIONS } from "~/Components/Question/QuestionButton/QuestionButton";
 import { getSession } from "~/session.server";
 
 export const loader = async (requestArguments: LoaderArgs) => {
@@ -16,7 +14,7 @@ export const loader = async (requestArguments: LoaderArgs) => {
 
 export default function FirstExplanation() {
   const { setIsTimerPaused } = useQuestionContext();
-  const iconStyles = "w-[4.5rem] h-[4.5rem]";
+  // const iconStyles = "w-[4.5rem] h-[4.5rem]";
   useEffect(() => {
     setIsTimerPaused(true);
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
@@ -58,7 +56,7 @@ export default function FirstExplanation() {
         </li>
       </ul>
       {/* Example */}
-      <h3 className="text-xl font-medium">Example:</h3>
+      {/* <h3 className="text-xl font-medium">Example:</h3>
       <div className="flex items-center justify-center">
         <ComponentialExampleIcons.Example className={iconStyles} />
       </div>
@@ -108,7 +106,7 @@ export default function FirstExplanation() {
         also shapes with four sides. The common feature in this pair is the
         number of sides, which matches the single image. The pairs in answer
         options A, C, and D do not share this common feature.
-      </p>
+      </p> */}
     </div>
   );
 }

@@ -12,10 +12,13 @@ import { prisma } from "~/db.server";
 const getAllScores = async () => {
   const scores = await prisma.users.findMany({
     select: {
-      score: true,
+      questions: true,
     },
   });
-  return scores;
+  const numberOfCorrectAnswers = scores.map(
+    (score) => score.questions.filter((question) => question.correct).length
+  );
+  return numberOfCorrectAnswers;
 };
 
 const getRawScore = (answers: AnswerType) => {
@@ -29,7 +32,7 @@ const getRawScore = (answers: AnswerType) => {
  * the raw score and the mean and standard deviation of all the scores in the database.
  */
 const getScore = async (answers: AnswerType) => {
-  const allScores = await getAllScores();
+  const numberOfCorrectAnswers = await getAllScores();
 
   const totalRawScore = 20;
   const rawScore = getRawScore(answers);
@@ -37,15 +40,11 @@ const getScore = async (answers: AnswerType) => {
     return 0;
   }
 
-  if (allScores.length === 0) {
+  if (numberOfCorrectAnswers.length === 0) {
     return Math.round((rawScore / totalRawScore) * 100);
   }
-  const meanRawScore = MathUtility.calculateMean(
-    allScores.map((score) => score.score)
-  );
-  const std = MathUtility.calculateStandardDeviation(
-    allScores.map((score) => score.score)
-  );
+  const meanRawScore = MathUtility.calculateMean(numberOfCorrectAnswers);
+  const std = MathUtility.calculateStandardDeviation(numberOfCorrectAnswers);
   if (std === 0) {
     return Math.round((rawScore / totalRawScore) * 100);
   }

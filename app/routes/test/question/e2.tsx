@@ -50,7 +50,7 @@ export default function SecondExplanation() {
         </li>
       </ul>
       {/* Example */}
-      <h3 className="text-xl font-medium">Example:</h3>
+      {/* <h3 className="text-xl font-medium">Example:</h3>
       <div className="flex items-center justify-center">
         <p>
           Shoe {">"} Leather {">>"} Tire {">"}
@@ -83,7 +83,7 @@ export default function SecondExplanation() {
       <p>
         A shoe is frequently made of leather. A tire is frequently made of
         rubber
-      </p>
+      </p> */}
     </div>
   );
 }
