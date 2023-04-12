@@ -1,9 +1,6 @@
 import { type LoaderArgs, redirect } from "@remix-run/server-runtime";
 import { useEffect } from "react";
-import { Icon } from "~/Components/Icons/Icon";
-import { ExperientialExampleIcons } from "~/Components/Icons/questionIcons/experiential/Example/ExperientialExampleIcons";
 import { useQuestionContext } from "~/Components/Question/Context/QuestionContext";
-import { ANSWER_OPTIONS } from "~/Components/Question/QuestionButton/QuestionButton";
 import { getSession } from "~/session.server";
 
 export const loader = async (requestArguments: LoaderArgs) => {
@@ -17,7 +14,7 @@ export const loader = async (requestArguments: LoaderArgs) => {
 
 export default function ThirdExplanation() {
   const { setIsTimerPaused } = useQuestionContext();
-  const iconStyles = "w-16 h-16";
+  // const iconStyles = "w-16 h-16";
   useEffect(() => {
     setIsTimerPaused(true);
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
@@ -54,7 +51,7 @@ export default function ThirdExplanation() {
         </li>
       </ul>
       {/* Example */}
-      <h3 className="text-xl font-medium">Example:</h3>
+      {/* <h3 className="text-xl font-medium">Example:</h3>
       <div className="rows-2 grid items-center justify-center space-y-10">
         <div className="flex items-center justify-center">
           {ExperientialExampleIcons.Example.map((ExampleIcon, index) => {
@@ -108,7 +105,7 @@ export default function ThirdExplanation() {
         Option A, B, and C do not fit the pattern of the series. Option A adds a
         different shape altogether, while options B and C add shapes in a
         different configuration. Therefore, the correct answer is D.
-      </p>
+      </p> */}
     </div>
   );
 }

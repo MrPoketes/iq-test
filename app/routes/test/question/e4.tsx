@@ -53,7 +53,7 @@ export default function FourthExplanation() {
         </li>
       </ul>
       {/* Example */}
-      <h3 className="text-xl font-medium">Example:</h3>
+      {/* <h3 className="text-xl font-medium">Example:</h3>
       <div className="flex items-center justify-center">
         <p>
           Baby {">"} Toddler {">"} Child {">>"} Seedling {">"}
@@ -86,7 +86,7 @@ export default function FourthExplanation() {
       <p>
         A baby, as it grows older, becomes a toddler and then a child; a
         seedling becomes a tree
-      </p>
+      </p> */}
     </div>
   );
 }
