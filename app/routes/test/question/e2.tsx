@@ -49,41 +49,6 @@ export default function SecondExplanation() {
           remains consistent.
         </li>
       </ul>
-      {/* Example */}
-      {/* <h3 className="text-xl font-medium">Example:</h3>
-      <div className="flex items-center justify-center">
-        <p>
-          Shoe {">"} Leather {">>"} Tire {">"}
-        </p>
-      </div>
-      <div className="grid grid-rows-2 justify-center space-y-3">
-        <div className="flex items-center justify-center space-x-4">
-          <div className="block min-w-[110px] rounded-md border-2 border-gray-300 p-2 text-center">
-            <p>Automobile</p>
-            <span>A</span>
-          </div>
-          <div className="block min-w-[110px] rounded-md border-2 border-gray-300 p-2 text-center">
-            <p>Round</p>
-            <span>B</span>
-          </div>
-        </div>
-        <div className="flex items-center justify-center space-x-4">
-          <div className="block min-w-[110px] rounded-md border-2 border-gray-300 p-2 text-center">
-            <p>Rubber</p>
-            <span>C</span>
-          </div>
-          <div className="block min-w-[110px] rounded-md border-2 border-gray-300 p-2 text-center">
-            <p>Hollow</p>
-            <span>D</span>
-          </div>
-        </div>
-      </div>
-      <h3 className="text-xl font-medium">Correct Answer: C</h3>
-      <h3 className="text-xl font-medium">Explanation:</h3>
-      <p>
-        A shoe is frequently made of leather. A tire is frequently made of
-        rubber
-      </p> */}
     </div>
   );
 }
