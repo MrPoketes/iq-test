@@ -14,7 +14,6 @@ export const loader = async (requestArguments: LoaderArgs) => {
 
 export default function FirstExplanation() {
   const { setIsTimerPaused } = useQuestionContext();
-  // const iconStyles = "w-[4.5rem] h-[4.5rem]";
   useEffect(() => {
     setIsTimerPaused(true);
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
@@ -55,58 +54,6 @@ export default function FirstExplanation() {
           image given in the question.
         </li>
       </ul>
-      {/* Example */}
-      {/* <h3 className="text-xl font-medium">Example:</h3>
-      <div className="flex items-center justify-center">
-        <ComponentialExampleIcons.Example className={iconStyles} />
-      </div>
-      <div className="grid grid-rows-2 justify-center space-y-3">
-        <div className="flex items-center justify-center space-x-4">
-          {[
-            ComponentialExampleIcons.ExampleA,
-            ComponentialExampleIcons.ExampleB,
-          ].map((ExampleIcons, index) => (
-            <div
-              key={index}
-              className="block rounded-md border-2 border-gray-300 p-2 text-center"
-            >
-              <div className="flex items-center space-x-3">
-                {ExampleIcons.map((ExampleIcon, iconIndex) => (
-                  <ExampleIcon key={iconIndex} className={iconStyles} />
-                ))}
-              </div>
-              <span>{ANSWER_OPTIONS[index]}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex items-center justify-center space-x-4">
-          {[
-            ComponentialExampleIcons.ExampleC,
-            ComponentialExampleIcons.ExampleD,
-          ].map((ExampleIcons, index) => (
-            <div
-              key={index}
-              className="block rounded-md border-2 border-gray-300 p-2 text-center"
-            >
-              <div className="flex items-center space-x-3">
-                {ExampleIcons.map((ExampleIcon, iconIndex) => (
-                  <ExampleIcon key={iconIndex} className={iconStyles} />
-                ))}
-              </div>
-              <span>{ANSWER_OPTIONS[index + 2]}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <h3 className="text-xl font-medium">Correct Answer: B</h3>
-      <h3 className="text-xl font-medium">Explanation:</h3>
-      <p>
-        The single image is a triangle, which is a shape with three sides. The
-        correct pair in answer option B is a rectangle and a square, which are
-        also shapes with four sides. The common feature in this pair is the
-        number of sides, which matches the single image. The pairs in answer
-        options A, C, and D do not share this common feature.
-      </p> */}
     </div>
   );
 }
