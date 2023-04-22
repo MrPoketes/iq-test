@@ -6,28 +6,28 @@ import type {
 
 const getQuestionIcons = (id: ComponentialImageIdType) => {
   return {
-    1: {
+    3: {
       Question: ComponentialIcon.Q1.Q1,
       A: ComponentialIcon.Q1.Q1A,
       B: ComponentialIcon.Q1.Q1B,
       C: ComponentialIcon.Q1.Q1C,
       D: ComponentialIcon.Q1.Q1D,
     },
-    2: {
+    4: {
       Question: ComponentialIcon.Q2.Q2,
       A: ComponentialIcon.Q2.Q2A,
       B: ComponentialIcon.Q2.Q2B,
       C: ComponentialIcon.Q2.Q2C,
       D: ComponentialIcon.Q2.Q2D,
     },
-    3: {
+    2: {
       Question: ComponentialIcon.Q3.Q3,
       A: ComponentialIcon.Q3.Q3A,
       B: ComponentialIcon.Q3.Q3B,
       C: ComponentialIcon.Q3.Q3C,
       D: ComponentialIcon.Q3.Q3D,
     },
-    4: {
+    1: {
       Question: ComponentialIcon.Q4.Q4,
       A: ComponentialIcon.Q4.Q4A,
       B: ComponentialIcon.Q4.Q4B,
@@ -46,35 +46,35 @@ const getQuestionIcons = (id: ComponentialImageIdType) => {
 
 const getTextQuestions = (id: ComponentialTextIdType) => {
   return {
-    6: {
+    9: {
       Question: ["Spouse", "Husband", "Sibling"],
       A: "Father",
       B: "Uncle",
       C: "Brother",
       D: "Son",
     },
-    7: {
+    8: {
       Question: ["Water", "Ice", "Rain"],
       A: "Cyclone",
       B: "Hail",
       C: "Fire",
       D: "Dry Ice",
     },
-    8: {
+    10: {
       Question: ["Gold", "Mine", "Pearl"],
       A: "Oyster",
       B: "Clam",
       C: "Mine",
       D: "River",
     },
-    9: {
+    6: {
       Question: ["Greek", "Greek", "Roman"],
       A: "Indo-European",
       B: "Latin",
       C: "Mediterranean",
       D: "Romanish",
     },
-    10: {
+    7: {
       Question: ["Alcohol", "Liver", "Cigarettes"],
       A: "Kidneys",
       B: "Lungs",
