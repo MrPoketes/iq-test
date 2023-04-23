@@ -62,7 +62,7 @@ export default function QuestionPage() {
   const [answers, setAnswers] = useState(DEFAULT_ANSWER_VALUE);
   const [isTimerPaused, setIsTimerPaused] = useState(true);
 
-  const [time, setTime] = useState(1320);
+  const [time, setTime] = useState(1080);
 
   useEffect(() => {
     if (time > 0 && !isTimerPaused) {
