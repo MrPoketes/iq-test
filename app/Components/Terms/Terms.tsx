@@ -12,7 +12,7 @@ export const Terms: React.FC = () => (
         "The generated result may not be entirely accurate and should be used for entertainment purposes only",
         "Any questions or suggestions can be sent to az778@york.ac.uk",
         "Before starting the test, make sure you are in a place that allows you to concentrate on!",
-        "The test consists of 20 questions, gradually increasing in difficulty. Maximum test duration is 22 minutes",
+        "The test consists of 20 questions, gradually increasing in difficulty. Maximum test duration is 18 minutes",
         "Before each test section or sub-section you will be presented with instructions, how to answer the questions",
         "Evaluate questions from top to down. Choose the appropriate answer (A, B, C, D)",
         "Please do not use any reference materials or the help of anyone else in solving these problems!",
