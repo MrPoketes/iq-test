@@ -12,6 +12,12 @@ IQ test developed by Armintas Zadeika as part of BSc Computer Science dissertati
 
 - Firstly, you need to configure your `.env` file. For development environment, you can simply copy `.env.example` provided and rename it to `.env`
 
+- Installing node modules:
+
+  ```sh
+  yarn install
+  ```
+
 - Start the Postgres Database in [Docker](https://www.docker.com/get-started):
 
   ```sh
