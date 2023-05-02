@@ -43,3 +43,5 @@ IQ test developed by Armintas Zadeika as part of BSc Computer Science dissertati
   ```sh
   yarn dev
   ```
+
+- The server will be running on `http://localhost:3000`
